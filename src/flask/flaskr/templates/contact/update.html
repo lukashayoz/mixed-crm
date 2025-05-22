@@ -7,28 +7,28 @@
 {% block content %}
   <div class="row">
     <div class="col-md-8">
-      <form method="post" data-testid="update-form">
+      <form method="post">
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" name="name" id="name" value="{{ request.form['name'] or contact['name'] }}" required data-testid="input-name">
+          <input type="text" class="form-control" name="name" id="name" value="{{ request.form['name'] or contact['name'] }}" required>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" name="email" id="email" value="{{ request.form['email'] or contact['email'] }}" data-testid="input-email">
+          <input type="email" class="form-control" name="email" id="email" value="{{ request.form['email'] or contact['email'] }}">
         </div>
         <div class="mb-3">
           <label for="phone" class="form-label">Phone</label>
-          <input type="tel" class="form-control" name="phone" id="phone" value="{{ request.form['phone'] or contact['phone'] }}" data-testid="input-phone">
+          <input type="tel" class="form-control" name="phone" id="phone" value="{{ request.form['phone'] or contact['phone'] }}">
         </div>
         <div class="mb-3">
           <label for="rating" class="form-label">Rating (1-5)</label>
-          <input type="number" class="form-control" name="rating" id="rating" value="{{ request.form['rating'] or contact['rating'] }}" min="1" max="5" data-testid="input-rating">
+          <input type="number" class="form-control" name="rating" id="rating" value="{{ request.form['rating'] or contact['rating'] }}" min="1" max="5">
         </div>
-        <button type="submit" class="btn btn-primary" data-testid="save-button">Save</button>
+        <button type="submit" class="btn btn-primary">Save</button>
       </form>
       <hr class="my-4">
-      <form action="{{ url_for('contact.delete', id=contact['id']) }}" method="post" data-testid="delete-form">
-        <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure?');" data-testid="delete-button">Delete</button>
+      <form action="{{ url_for('contact.delete', id=contact['id']) }}" method="post">
+        <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure?');">Delete</button>
       </form>
     </div>
   </div>
