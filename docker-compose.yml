@@ -14,5 +14,3 @@ services:
     build: ./src/e2e
     depends_on:
       - web
-    environment:
-      - BASE_URL=http://web:5000
