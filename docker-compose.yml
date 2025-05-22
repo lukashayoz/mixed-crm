@@ -1,0 +1,18 @@
+services:
+  web:
+    build: ./src/flask
+    ports:
+      - "5001:5000"
+    environment:
+      - FLASK_APP=flaskr:create_app
+      - FLASK_ENV=development
+    volumes:
+      - ./src/flask/flaskr:/app/flaskr
+      - ./src/flask/instance:/app/instance
+
+  e2e:
+    build: ./src/e2e
+    depends_on:
+      - web
+    environment:
+      - BASE_URL=http://web:5000
