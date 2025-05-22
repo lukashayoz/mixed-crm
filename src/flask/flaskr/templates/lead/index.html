@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Leads{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('lead.create') }}">Add Lead</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Amount</th>
+        <th>Probability</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lead in leads %}
+        <tr>
+          <td>{{ lead['title'] }}</td>
+          <td>{{ lead['start_date'] if lead['start_date'] is not none else 'N/A' }}</td>
+          <td>{{ lead['end_date'] if lead['end_date'] is not none else 'N/A' }}</td>
+          <td>{{ lead['amount'] if lead['amount'] is not none else 'N/A' }}</td>
+          <td>{{ lead['probability'] if lead['probability'] is not none else 'N/A' }}</td>
+          <td>
+            <a class="action" href="{{ url_for('lead.update', id=lead['id']) }}">Edit</a>
+            <form action="{{ url_for('lead.delete', id=lead['id']) }}" method="post" style="display: inline;">
+              <input type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+            </form>
+          </td>
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="6">No leads found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
