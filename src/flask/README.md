@@ -1,5 +1,8 @@
 # Getting started
 ```
+# Create a virtual environment if not alerady created
+python -m venv .venv
+
 # Activate virtualenv
 source .venv/bin/activate
 
