@@ -6,3 +6,7 @@ VALUES
 INSERT INTO post (title, body, author_id, created)
 VALUES
   ('test title', 'test' || x'0a' || 'body', 1, '2018-01-01 00:00:00');
+  
+INSERT INTO contact (name, email, phone, rating, created)
+VALUES
+  ('John Doe', 'john@example.com', '123-456-7890', 5, '2018-01-01 00:00:00');

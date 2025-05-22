@@ -15,6 +15,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('blog.index') }}">Posts</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('contact.index') }}">Contacts</a></li>
+        </ul>
         <ul class="navbar-nav ms-auto">
           {% if g.user %}
             <li class="nav-item"><span class="nav-link">{{ g.user['username'] }}</span></li>
