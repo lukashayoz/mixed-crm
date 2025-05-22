@@ -3,7 +3,6 @@ from flask import (
 )
 from werkzeug.exceptions import abort
 
-from flaskr.auth import login_required
 from flaskr.db import get_db
 
 bp = Blueprint('contact', __name__, url_prefix='/contact')
@@ -19,7 +18,6 @@ def index():
     return render_template('contact/index.html', contacts=contacts)
 
 @bp.route('/create', methods=('GET', 'POST'))
-@login_required
 def create():
     if request.method == 'POST':
         name = request.form['name']
@@ -59,7 +57,6 @@ def get_contact(id):
     return contact
 
 @bp.route('/<int:id>/update', methods=('GET', 'POST'))
-@login_required
 def update(id):
     contact = get_contact(id)
 
@@ -88,7 +85,6 @@ def update(id):
     return render_template('contact/update.html', contact=contact)
 
 @bp.route('/<int:id>/delete', methods=('POST',))
-@login_required
 def delete(id):
     get_contact(id)
     db = get_db()

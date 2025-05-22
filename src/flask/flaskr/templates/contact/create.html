@@ -7,24 +7,24 @@
 {% block content %}
   <div class="row">
     <div class="col-md-8">
-      <form method="post">
+      <form method="post" data-testid="contact-form">
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" name="name" id="name" value="{{ request.form['name'] }}" required>
+          <input type="text" class="form-control" name="name" id="name" value="{{ request.form['name'] }}" required data-testid="input-name">
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" name="email" id="email" value="{{ request.form['email'] }}">
+          <input type="email" class="form-control" name="email" id="email" value="{{ request.form['email'] }}" data-testid="input-email">
         </div>
         <div class="mb-3">
           <label for="phone" class="form-label">Phone</label>
-          <input type="tel" class="form-control" name="phone" id="phone" value="{{ request.form['phone'] }}">
+          <input type="tel" class="form-control" name="phone" id="phone" value="{{ request.form['phone'] }}" data-testid="input-phone">
         </div>
         <div class="mb-3">
           <label for="rating" class="form-label">Rating (1-5)</label>
-          <input type="number" class="form-control" name="rating" id="rating" value="{{ request.form['rating'] }}" min="1" max="5">
+          <input type="number" class="form-control" name="rating" id="rating" value="{{ request.form['rating'] }}" min="1" max="5" data-testid="input-rating">
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary" data-testid="save-button">Save</button>
       </form>
     </div>
   </div>
