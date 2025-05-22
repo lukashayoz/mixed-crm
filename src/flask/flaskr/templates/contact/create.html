@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Contact{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8">
+      <form method="post">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" name="name" id="name" value="{{ request.form['name'] }}" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email" value="{{ request.form['email'] }}">
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="tel" class="form-control" name="phone" id="phone" value="{{ request.form['phone'] }}">
+        </div>
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating (1-5)</label>
+          <input type="number" class="form-control" name="rating" id="rating" value="{{ request.form['rating'] }}" min="1" max="5">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
